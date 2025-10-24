@@ -31,18 +31,3 @@ echo "📂 Subfolder '${sub_folder_name4}' is here: '${TARGET_FOLDER}'! 😃"
 
 # Final confirmation
 echo "✅ Please note that we ensure that all directories (folders) are set up and ready 😎"
-
-# # --- DOWNLOAD Ancestry Reference FILES ---
-# echo "Downloading files from EBI FTP..."
-# curl -L -o pgsc_HGDP+1kGP_v1.tar.zst https://ftp.ebi.ac.uk/pub/databases/spot/pgs/resources/pgsc_HGDP+1kGP_v1.tar.zst
-# curl -L -o pgsc_1000G_v1.tar.zst https://ftp.ebi.ac.uk/pub/databases/spot/pgs/resources/pgsc_1000G_v1.tar.zst
-
-# # --- UPLOAD FILES TO DNANEXUS ---
-# echo "Uploading files to DNAnexus folder: ${TARGET_FOLDER}/"
-# dx upload pgsc_HGDP+1kGP_v1.tar.zst --path "${TARGET_FOLDER}/" --brief
-# dx upload pgsc_1000G_v1.tar.zst --path "${TARGET_FOLDER}/" --brief
-
-# # --- CLEAN UP (optional) ---
-# rm pgsc_HGDP+1kGP_v1.tar.zst pgsc_1000G_v1.tar.zst
-
-# echo "✅ Done! Please note that the Ancestry reference files have been uploaded to ${TARGET_FOLDER}/"
