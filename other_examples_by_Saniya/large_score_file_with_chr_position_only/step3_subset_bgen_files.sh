@@ -64,6 +64,21 @@ for snp_file_dx in "${snp_files[@]}"; do
     output_bgen="${pgs_id}_${genome_build}_ukb22828_subset_chr${chr}${part}.bgen"
     output_found_snps="${pgs_id}_${genome_build}_ukb22828_extractedSNPs_chr${chr}${part}.txt"
 
+    # --------------------
+    # Check if output files exist using dx describe
+    # --------------------
+    bgen_exists=$(dx describe "${output_folder}/${output_bgen}" &> /dev/null && echo 1 || echo 0)
+
+    if [[ $bgen_exists -eq 1 ]]; then
+        echo ":white_check_mark::innocent: Output files for chr${chr}${part} already exist in ${output_folder}. Skipping."
+        echo "-------------------------------------------"
+        continue
+    else
+        echo ":large_yellow_circle: Missing outputs for chr${chr}${part}. Proceeding with extraction."
+        echo "Preparing job for SNP file: $snp_file | chr=${chr} | part=${part}"
+
+    fi
+
     # DNAnexus job command: use basename inside container
     job_cmd="echo 'Processing chromosome ${chr}${part}'; \
 bgenix -g $(basename "$bgen_dx_path") -incl-range $(basename "$snp_file_dx") > ${output_bgen}; \
