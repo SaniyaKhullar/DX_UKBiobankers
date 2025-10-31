@@ -12,7 +12,7 @@ score_folder="/${main_folder}/pgs_scores"
 score_file="${pgs_catalog_id}.txt"         # Alternatively, use --pgs_id directly
 
 # Input: Samplesheet (maps individuals → genotype data prefix)
-samplesheet_path="/${main_folder}/pgsc_calc_${grouped_pgs_id}_${genome_build}_samplesheet.csv"
+samplesheet_path="/${main_folder}/pgsc_calc_${grouped_pgs_id}_${genome_build}_samplesheet_${hg38_genotype_imputation_type}.csv"
 
 # Input: Genotype data (PLINK 1 binary format, merged across chromosomes)
 genotype_prefix="all_chromosomes_SNPs_merged_${grouped_pgs_id}_${genome_build}"
